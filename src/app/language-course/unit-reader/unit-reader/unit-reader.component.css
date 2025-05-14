@@ -1,0 +1,42 @@
+.text-window {
+  margin: 2rem 0 2rem 4rem;
+  width: 60%;
+  min-height: 40%;
+  padding: 5px;
+  overflow: auto;
+  background: var(--clr-mortar-dark);
+  border-radius: 6px;
+}
+
+.parsing-window {
+  margin: 2rem 0 2rem 2rem;
+  width: 30%;
+  min-height: 40%;
+  padding: 5px;
+  overflow: auto;
+  background: var(--clr-mortar-dark);
+  border-radius: 6px;
+}
+
+.word {
+  display: inline-block;
+  margin: 0.25rem 2px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  background: var(--clr-mortar);
+  border-radius: 3px;
+}
+
+.word:hover {
+  background-color: var(--clr-bizarre);
+  color: var(--clr-mortar);
+  cursor: pointer;
+}
+
+.audio-controls-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}

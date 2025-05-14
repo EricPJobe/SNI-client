@@ -1,0 +1,32 @@
+<div class="flex-container-variable column h-center">
+  <div class="flex-container-variable row">
+    <div class="text-window">
+      @for (word of text; track word.id) {
+        <div class="word"
+             (mouseover)="onWordHover(word)"
+             (mouseout)="onHoverOut()">{{word.lemma}}</div>
+      }
+    </div>
+    <div class="parsing-window">
+      @if (hoveredWord) {
+        <div class="parsing-text" >
+          <p><strong>Parsing:</strong> {{ hoveredWord.parsing }}</p>
+          <p><strong>Dictionary Form:</strong> {{ hoveredWord.dictionaryForm }}</p>
+          <p><strong>Meaning:</strong> {{ hoveredWord.gloss }}</p>
+        </div>
+      }
+    </div>
+  </div>
+  <div class="audio-controls-container">
+    <div class="audio-controls">
+      <button type="button" class="btn" (click)="onPlay()">Play</button>
+      <button type="button" class="btn" (click)="onPause()">Pause</button>
+      <button type="button" class="btn" (click)="onStop()">Stop</button>
+    </div>
+    <div class="audio-progress">
+      <input type="range" min="0" max="100" value="50" class="slider" id="audioProgress">
+      <div class="current-time">00:00</div>
+      <div class="total-time">00:00</div>
+    </div>
+  </div>
+</div>
