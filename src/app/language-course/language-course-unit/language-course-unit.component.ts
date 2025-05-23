@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { UnitReaderComponent } from "../unit-reader/unit-reader/unit-reader.component";
 
 @Component({
   selector: 'app-language-course-unit',
-  imports: [],
+  imports: [UnitReaderComponent],
   templateUrl: './language-course-unit.component.html',
   styleUrl: './language-course-unit.component.css'
 })
 export class LanguageCourseUnitComponent implements OnInit {
   unit = {
-    title: 'Unit 1: Introduction to Language',
+    title: 'Unit 2',
     description: 'Meet Andronicus and his family.'
   }
 

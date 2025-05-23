@@ -1,14 +1,14 @@
 <div class="flex-container h-center column">
+  <!-- <div class="button-row">
+    <button type="button" class="btn" (click)="onPrevious()">Back</button>
+    <button type="button" class="btn" (click)="onNext()">Next</button>
+  </div> -->
   <div class="form-title">Beginning New Testament Greek</div>
   <div class="unit-content">
     <h2>{{unit.title}}</h2>
     <p>{{unit.description}}</p>
   </div>
   <div class="unit-text-container">
-
-  </div>
-  <div class="button-row">
-    <button type="button" class="btn" (click)="onPrevious()">Back</button>
-    <button type="button" class="btn" (click)="onNext()">Next</button>
+      <app-unit-reader></app-unit-reader>
   </div>
 </div>

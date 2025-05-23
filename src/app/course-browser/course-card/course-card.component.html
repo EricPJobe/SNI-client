@@ -1,0 +1,33 @@
+<cdk-accordion class="course-card">
+  <cdk-accordion-item #accordionItem="cdkAccordionItem" class="course-card-item">
+    <button
+      class="course-card-header"
+      (click)="accordionItem.toggle()"
+      [attr.aria-expanded]="accordionItem.expanded"
+      [attr.aria-controls]="accordionItem.id"
+      [attr.id]="accordionItem.id">
+      {{ course!.name }}
+      <span class="course-accordion-item-description">
+        Click to {{ accordionItem.expanded ? 'close' : 'open' }}
+      </span>
+    </button>
+    @if (accordionItem.expanded) {
+      <div
+        class="course-card-body"
+        role="region"
+        [style.display]="accordionItem.expanded ? '' : 'none'"
+        [attr.id]="'accordion-body'"
+        [attr.aria-labelledby]="accordionItem.id"
+      >
+        <p class="course-card-description">
+          {{ course!.description }}
+        </p>
+        <button
+          class="course-card-button"
+          (click)="addToCart(course!)">
+          Purchase Course
+        </button>
+      </div>
+    }
+  </cdk-accordion-item>
+</cdk-accordion>

@@ -1,0 +1,23 @@
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 2rem;
+}
+
+.search-bar {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  margin-bottom: 2rem;
+  justify-content: center;
+  width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+

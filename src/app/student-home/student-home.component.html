@@ -1,0 +1,11 @@
+<div class="flex-container column">
+  <div class="welcome">
+    <div class="avatar">
+      <!-- <img alt="avatar" /> -->
+    </div>
+    @if (user) {
+      <div class="greeting">Hello, {{user.firstName}}!</div>
+    }
+  </div>
+  <app-my-courses></app-my-courses>
+</div>

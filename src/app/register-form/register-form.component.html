@@ -1,0 +1,65 @@
+<div class="flex-container h-center column">
+  <div class="form-title">Register</div>
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div class="field">
+      <label class="label" for="firstName">First Name</label>
+      <div class="validator-group">
+        <input class="input" id="firstName" formControlName="firstName">
+        @if (registrationForm.get('firstName')?.invalid && registrationForm.get('firstName')?.touched) {
+          <div class="validator">
+            First name is required.
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label" for="lastName">Last Name</label>
+      <div class="validator-group">
+        <input class="input" id="lastName" formControlName="lastName">
+        @if (registrationForm.get('lastName')?.invalid && registrationForm.get('lastName')?.touched) {
+          <div class="validator">
+            Last name is required.
+          </div>
+        }
+      </div>
+    </div>
+    <div class="field">
+      <label class="label" for="email">Email Address</label>
+      <div class="validator-group">
+        <input class="input" id="email" formControlName="email">
+        @if (registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched) {
+          <div class="validator">
+            Email address is required.
+          </div>
+        }
+      </div>
+    </div>
+    <div class="field">
+      <label class="label" for="userName">Username</label>
+      <div class="validator-group">
+        <input class="input" id="username" formControlName="username">
+        @if (registrationForm.get('username')?.invalid && registrationForm.get('username')?.touched) {
+          <div class="validator">
+            Username is required.
+          </div>
+        }
+      </div>
+    </div>
+    <div class="field">
+      <label class="label" for="password">Password</label>
+      <div class="validator-group">
+        <input class="input" id="password" type="password" formControlName="password">
+        @if (registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched) {
+          <div class="validator">
+            Password must be at least 8 characters.
+          </div>
+        }
+      </div>
+    </div>
+    <div class="button-row">
+      <button type="submit" class="btn btn-submit">Submit</button>
+      <button type="button" class="btn btn-cancel">Cancel</button>
+    </div>
+  </form>
+</div>

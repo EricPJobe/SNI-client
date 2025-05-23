@@ -1,0 +1,29 @@
+.logo {
+  padding: 0.25rem 0.75rem;
+  margin-right: 1rem;
+  border: 1px solid var(--clr-bizarre);
+  border-radius: 50px / 50px;
+}
+
+.header {
+  height: 4rem;
+  background-color: var(--clr-nav);
+  color: var(--clr-bizarre);
+  margin: 0;
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.right {
+  margin-left: auto;
+}
+
+.title {
+  margin-right: 1rem;
+}

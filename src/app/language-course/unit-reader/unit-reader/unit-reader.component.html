@@ -1,5 +1,5 @@
 <div class="flex-container-variable column h-center">
-  <div class="flex-container-variable row">
+  <div class="flex-container-variable row row-center">
     <div class="text-window">
       @for (word of text; track word.id) {
         <div class="word"
@@ -11,22 +11,39 @@
       @if (hoveredWord) {
         <div class="parsing-text" >
           <p><strong>Parsing:</strong> {{ hoveredWord.parsing }}</p>
-          <p><strong>Dictionary Form:</strong> {{ hoveredWord.dictionaryForm }}</p>
+          <p><strong>Dictionary Form:</strong><span class="greek-text"> {{ hoveredWord.dictionaryForm }}</span></p>
           <p><strong>Meaning:</strong> {{ hoveredWord.gloss }}</p>
         </div>
       }
     </div>
   </div>
   <div class="audio-controls-container">
-    <div class="audio-controls">
-      <button type="button" class="btn" (click)="onPlay()">Play</button>
-      <button type="button" class="btn" (click)="onPause()">Pause</button>
-      <button type="button" class="btn" (click)="onStop()">Stop</button>
+    <div class="audio-source">
+      <audio #audio (timeupdate)="onTimeUpdate()" (loadedmetadata)="onLoadedMetadata()">
+        <source [src]="audioSrc" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
     </div>
-    <div class="audio-progress">
-      <input type="range" min="0" max="100" value="50" class="slider" id="audioProgress">
-      <div class="current-time">00:00</div>
-      <div class="total-time">00:00</div>
+    <div class="audio-range">
+      <input
+        type="range"
+        class="audio-range-slider"
+        min="0"
+        [max]="duration"
+        [value]="currentTime"
+        (input)="seekTo($event)"
+      />
+      <div class="flex-container-variable column h-center">
+        <div>{{ formatTime(currentTime) }} / {{ formatTime(duration) }}</div>
+      </div>
+    </div>
+    <div class="audio-controls">
+      <button [disabled]="isPlaying" type="button" class="audio-btn" (click)="onPlay()">
+        <fa-icon [icon]="faCirclePlay" size="3x" class="audio-icon"></fa-icon>
+      </button>
+      <button [disabled]="!isPlaying" type="button" class="audio-btn" (click)="onPause()">
+        <fa-icon [icon]="faCirclePause" size="3x" class="audio-icon"></fa-icon>
+      </button>
     </div>
   </div>
 </div>

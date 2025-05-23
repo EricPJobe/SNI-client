@@ -1,0 +1,23 @@
+.welcome {
+  margin: 10rem 0 3rem 10rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.greeting {
+  font-size: 2.5rem;
+}
+
+.avatar {
+  margin-right: 1rem;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  border: 1px solid var(--clr-mortar-dark);
+  background-color: var(--clr-mortar-dark);
+}
+
+.message {
+  font-size: 2rem;
+}

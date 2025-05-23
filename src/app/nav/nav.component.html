@@ -1,0 +1,12 @@
+<nav class="primary-navigation">
+  <ul >
+    @if (isLoggedIn()) {
+      <li><a class="button" routerLink="/studenthome" routerLinkActive="activebutton">Home</a></li>
+      <li><a class="button" routerLink="/browse" routerLinkActive="activebutton">Browse Courses</a></li>
+      <li><a class="button" routerLink="/courses" routerLinkActive="activebutton">My Courses</a></li>
+    } @else {
+      <li><a class="button" routerLink="/register" routerLinkActive="activebutton">Register</a></li>
+      <li><a class="button" routerLink="/login" routerLinkActive="activebutton">Login</a></li>
+    }
+  </ul>
+</nav>

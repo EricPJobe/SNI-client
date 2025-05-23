@@ -1,0 +1,39 @@
+<div class="flex-container column h-center">
+  <div class="title">
+    <span>Browse Courses</span>
+  </div>
+  <div class="seach-bar">
+    <form #searchForm="ngForm">
+        <input
+          type="text"
+          name="search"
+          id="search"
+          aria-label="Search for a course"
+          placeholder="Search for a course..."
+          [(ngModel)]="searchTerm"
+          (input)="onSearch()"
+          class="input"
+        />
+    </form>
+  </div>
+  <div class="flex-container-variable row row-center">
+    <div class="course-list">
+      @for (course of courses; track course.id) {
+        <div class="course-item">
+          <button (click)="onCourseSelect(course)" class="course-button">
+            {{ course.name }}
+          </button>
+        </div>
+      }
+    </div>
+    <div class="course-details">
+      @if(selectedCourse) {
+        <div class="course-description">
+          <h2>{{ selectedCourse.name }}</h2>
+          <p>{{ selectedCourse.description }}</p>
+          <button (click)="onStartCourse(selectedCourse)" class="start-button">
+            Start Course
+          </button>
+        </div>
+      }
+</div>
