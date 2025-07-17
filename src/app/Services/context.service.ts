@@ -1,5 +1,6 @@
 import { computed, Injectable, signal } from '@angular/core';
 import { User } from '../models/user.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -7,10 +8,14 @@ import { User } from '../models/user.model';
 export class ContextService {
   private _token = signal<boolean>(false);
   private _user = signal<User | null>(null);
+  private _baseApiUrl = signal<string | undefined>(environment.apiUrl);
+  private _chatBaseUrl = signal<string | undefined>(environment.chatUrl);
 
   token = computed(() => this._token());
   user = computed(() => this._user());
   isLoggedIn = computed(() => !!this._token());
+  baseApiUrl = computed(() => this._baseApiUrl());
+  chatBaseUrl = computed(() => this._chatBaseUrl());
 
   constructor() {
 

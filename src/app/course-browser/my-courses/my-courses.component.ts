@@ -18,6 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class MyCoursesComponent implements OnInit{
   contextService = inject(ContextService);
+  baseUrl = this.contextService.baseApiUrl();
   dataService = inject(DataService);
   router = inject(Router);
   http = inject(HttpClient);

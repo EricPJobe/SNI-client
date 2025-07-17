@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { catchError, throwError } from 'rxjs';
+import { ContextService } from '../Services/context.service';
 
 
 @Component({
@@ -13,6 +14,8 @@ import { catchError, throwError } from 'rxjs';
   styleUrl: './register-form.component.css'
 })
 export class RegisterFormComponent {
+  context = inject(ContextService)
+  baseApiUrl = this.context.baseApiUrl();
   registrationForm: FormGroup;
   invalid: Boolean = false;
 
@@ -45,7 +48,7 @@ export class RegisterFormComponent {
       };
       console.log(payload);
       this.invalid = false;
-      this.http.post('http://localhost:5237/api/v1/auth/register', payload).pipe(
+      this.http.post(this.baseApiUrl + '/api/v1/auth/register', payload).pipe(
               catchError(err => {
                 console.error(err);
                 this.invalid = true;

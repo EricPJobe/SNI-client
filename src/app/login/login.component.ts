@@ -17,13 +17,16 @@ import { faRightToBracket, faXmark } from '@fortawesome/free-solid-svg-icons';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  context = inject(ContextService)
+  baseApiUrl = this.context.baseApiUrl();
   loginForm: FormGroup;
   invalid: Boolean = false;
   dataService = inject(DataService);
   faRightToBracket = faRightToBracket;
   faXmark = faXmark;
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router, private context: ContextService) {
+
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
 
     this.context.logout();
     this.loginForm = this.fb.group({
@@ -40,7 +43,7 @@ export class LoginComponent {
       };
       console.log("Form Data: ", this.loginForm.value);
       this.invalid = false;
-      this.http.post('http://localhost:5237/api/v1/auth/login', payload).pipe(
+      this.http.post(`${this.baseApiUrl}/api/v1/auth/login`, payload).pipe(
         catchError(err => {
           console.error(err);
           this.invalid = true;
