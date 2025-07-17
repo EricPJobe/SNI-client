@@ -1,29 +1,60 @@
 .logo {
   padding: 0.25rem 0.75rem;
   margin-right: 1rem;
-  border: 1px solid var(--clr-bizarre);
+  border: 1px solid var(--color-text-secondary);
   border-radius: 50px / 50px;
 }
 
 .header {
   height: 4rem;
-  background-color: var(--clr-nav);
-  color: var(--clr-bizarre);
-  margin: 0;
-  padding: 0.75rem;
+  background-color: var(--color-surface);
+  color: var(--color-text-secondary);
+  margin: 1rem 0 1rem 0;;
+  padding: 0.8rem;
   display: flex;
-  align-items: center;
+  width: 100%;
+  /* border-radius: 50px / 50px; */
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
 }
 
 .left {
   display: flex;
   align-items: center;
+  opacity: 1;
+  transition: opacity 2.3s ease;
 }
 
 .right {
+  display: flex;
+  align-items: center;
   margin-left: auto;
+  opacity: 1;
+  /* transform: translateX(0); */
+  transition: opacity 2.3s ease/*, transform 2.75s ease*/;
 }
 
 .title {
   margin-right: 1rem;
+  opacity: 1;
+  /* transform: translateX(0); */
+  transition: opacity 2.75s ease/*, transform 2.75s ease*/;
+}
+
+header.collapsed .title,
+header.collapsed .left,
+header.collapsed .right {
+  opacity: 0;
+}
+
+header.collapsed {
+  width: 5rem;
+  justify-content: center;
+  transform: translateX(-95%);
+}
+
+.animated-content {
+  display: flex;
+  align-items: center;
+  opacity: 1;
 }

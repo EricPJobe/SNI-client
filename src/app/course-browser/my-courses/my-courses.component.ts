@@ -8,10 +8,11 @@ import { ContextService } from '../../Services/context.service';
 import { DataService } from '../../Services/data.service';
 import { User } from '../../models/user.model';
 import { Course } from '../../models/course.model';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-my-courses',
-  imports: [],
+  imports: [MatIconModule],
   templateUrl: './my-courses.component.html',
   styleUrl: './my-courses.component.css'
 })
@@ -48,6 +49,10 @@ export class MyCoursesComponent implements OnInit{
   navigateToCourse(id: string) {
     // console.log('Navigating to course: ', id);
     this.router.navigate(['/languagecourse', 'greek']);// Implement navigation logic here
+  }
+
+  navigateToAllRecentCourses() {
+    // this.router.navigate(['/languagecourse', 'greek']);// Implement navigation logic here
   }
 }
 

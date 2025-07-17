@@ -1,11 +1,25 @@
-<div class="flex-container column">
-  <div class="welcome">
-    <div class="avatar">
-      <!-- <img alt="avatar" /> -->
-    </div>
-    @if (user) {
-      <div class="greeting">Hello, {{user.firstName}}!</div>
-    }
+<div class="flex-container row">
+  <div class="sidebar">
+    <app-sidebar></app-sidebar>
   </div>
-  <app-my-courses></app-my-courses>
+  <div class="flex-container column">
+    <div class="welcome">
+      <div class="avatar">
+        <!-- <img alt="avatar" /> -->
+      </div>
+      @if (user) {
+        <div class="greeting">Hello, {{user.firstName}}!</div>
+      }
+    </div>
+    <div class="my-courses">
+      <app-my-courses></app-my-courses>
+    </div>
+    <div class="track">
+
+    </div>
+  </div>
+  <div class="chat">
+    <app-chat-window [thread]="thread"></app-chat-window>
+  </div>
 </div>
+

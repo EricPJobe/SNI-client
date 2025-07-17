@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { UnitReaderComponent } from "../unit-reader/unit-reader/unit-reader.component";
+import { SidebarComponent } from "../../sidebar/sidebar.component";
 
 @Component({
   selector: 'app-language-course-unit',
-  imports: [UnitReaderComponent],
+  imports: [UnitReaderComponent, SidebarComponent],
   templateUrl: './language-course-unit.component.html',
   styleUrl: './language-course-unit.component.css'
 })

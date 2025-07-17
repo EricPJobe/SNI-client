@@ -1,36 +1,40 @@
 <div class="flex-container h-center column">
-  <div class="form-title">Login</div>
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div class="field">
-      <label class="label" for="username">Username</label>
-      <div class="validator-group">
-        <input class="input" id="username" formControlName="username">
-        @if (loginForm.get('username')?.invalid && loginForm.get('username')?.touched) {
-          <div class="validator">
-            Username is required.
-          </div>
-        }
+  <div class="login-card">
+    <div class="form-title">Login</div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="field">
+        <label class="label" for="username">Username</label>
+        <div class="validator-group">
+          <input class="input" id="username" formControlName="username">
+          @if (loginForm.get('username')?.invalid && loginForm.get('username')?.touched) {
+            <div class="validator">
+              Username is required.
+            </div>
+          }
+        </div>
       </div>
-    </div>
-    <div class="field">
-      <label class="label" for="password">Password</label>
-      <div class="validator-group">
-        <input class="input" id="password" type="password" formControlName="password">
-        @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
-          <div class="validator">
-            Password must be at least 8 characters.
-          </div>
-        }
+      <div class="field">
+        <label class="label" for="password">Password</label>
+        <div class="validator-group">
+          <input class="input" id="password" type="password" formControlName="password">
+          @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
+            <div class="validator">
+              Password must be at least 8 characters.
+            </div>
+          }
+        </div>
       </div>
-    </div>
-    <div class="button-row">
-      <button type="submit" class="btn btn-submit">Submit</button>
-      <button type="button" class="btn btn-cancel">Cancel</button>
-    </div>
-    @if (invalid) {
-      <div class="failed">
-        <p>Incorrect email address or password. Please try again.</p>
+      <div class="button-row login-button-row">
+        <button type="submit" class="btn btn-submit login-button" [disabled]="loginForm.invalid">
+          <!-- <fa-icon [icon]="faRightToBracket" size="2x" class="login-button"></fa-icon> -->
+           <mat-icon style="font-size: 1.60rem">login</mat-icon>
+        </button>
       </div>
-    }
-  </form>
+      @if (invalid) {
+        <div class="validator">
+          <p>Incorrect username or password. Please try again.</p>
+        </div>
+      }
+    </form>
+  </div>
 </div>

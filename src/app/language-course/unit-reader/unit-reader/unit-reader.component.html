@@ -4,7 +4,8 @@
       @for (word of text; track word.id) {
         <div class="word"
              (mouseover)="onWordHover(word)"
-             (mouseout)="onHoverOut()">{{word.lemma}}</div>
+
+             >{{word.lemma}}</div>
       }
     </div>
     <div class="parsing-window">
@@ -34,16 +35,15 @@
         (input)="seekTo($event)"
       />
       <div class="flex-container-variable column h-center">
-        <div>{{ formatTime(currentTime) }} / {{ formatTime(duration) }}</div>
+        <div class="time">{{ formatTime(currentTime) }} / {{ formatTime(duration) }}</div>
       </div>
     </div>
     <div class="audio-controls">
-      <button [disabled]="isPlaying" type="button" class="audio-btn" (click)="onPlay()">
-        <fa-icon [icon]="faCirclePlay" size="3x" class="audio-icon"></fa-icon>
-      </button>
-      <button [disabled]="!isPlaying" type="button" class="audio-btn" (click)="onPause()">
-        <fa-icon [icon]="faCirclePause" size="3x" class="audio-icon"></fa-icon>
-      </button>
+        <!-- <fa-icon [icon]="faCirclePlay" size="3x" class="audio-icon"></fa-icon> -->
+      <mat-icon class="audio-btn" (click)="onPlayPause()">{{ isPlaying ? 'pause' : 'play_arrow' }}</mat-icon>
+
+        <!-- <fa-icon [icon]="faCirclePause" size="3x" class="audio-icon"></fa-icon> -->
+      <mat-icon class="audio-btn" (click)="onStop()">stop</mat-icon>
     </div>
   </div>
 </div>

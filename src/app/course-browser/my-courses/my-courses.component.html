@@ -1,9 +1,15 @@
 <div class="carousel-wrapper">
+  <div class="top-row">
+    <div class="message">
+      <p>Continue learning!</p>
+    </div>
+    <div class="see-all" (click)="navigateToAllRecentCourses()"><mat-icon>arrow_forward_ios</mat-icon></div>
+  </div>
   <div class="carousel">
-    <div class="message">Continue learning!</div>
     <div class="active-courses">
       @for (course of courses; track $index) {
         <div class="course-block" (click)="navigateToCourse(course.id)">
+          <img class="course-image" [src]="course.imageUrl" alt="Course Image" />
           <div class="course-title">{{course.name}}</div>
           <div class="course-author">{{course.author}}</div>
         </div>

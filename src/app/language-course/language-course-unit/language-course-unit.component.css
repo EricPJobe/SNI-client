@@ -1,7 +1,15 @@
+.form-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--color-text-primary);
+}
+
 .unit-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 20px;
+  color: var(--color-text-primary);
 }

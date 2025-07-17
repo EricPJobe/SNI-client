@@ -1,0 +1,52 @@
+.form-title {
+  color: var(--color-text-primary);
+  font-family: "Outfit";
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.label {
+  color: var(--color-text-primary);
+}
+
+input.input {
+  background-color: var(--color-surface-alt);
+  color: var(--color-text-primary)
+}
+
+::ng-deep input:is(:-webkit-autofill, :autofill), input.ng-touched {
+  background-color: var(--color-surface-alt);
+   box-shadow: 0 0 0 1000px var(--color-surface-alt) inset !important;
+  -webkit-text-fill-color: var(--color-text-primary) !important;
+}
+
+.login-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-primary)
+}
+
+.login-button-row {
+  margin-top: 1rem;
+}
+
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.login-card {
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-surface-alt);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+
+

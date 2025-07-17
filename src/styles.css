@@ -119,45 +119,62 @@
 
   /* Theme colors */
   :root {
-    --clr-bizarre: #e9dad4;
-    --clr-bizarre-dark: #d6c9c4;
-    --clr-tan: #d0b17d;
-    --clr-tan-dark: #b1976b;
-    --clr-cadet-blue: #a8a7c2;
-    --clr-cement: #8b6c5e;
-    --clr-mortar-light: #7a6b7e;
-    --clr-mortar: #48394f;
-    --clr-mortar-dark: #27212a;
-    --clr-charcoal: #141414;
 
-    --bg-color: var(--clr-mortar);
-    --text-color-light: var(--clr-bizarre);
-    --text-color-dark: var(--clr-charcoal);
-    --card-bg: var(--clr-bizarre);
-    --button-bg: var(--clr-cadet-blue);
-    --danger-button-bg: var(--clr-tan);
-    --danger-button-text: var(--clr-charcoal);
-    --button-text: var(--clr-bizarre);
-    --input-bg: var(--clr-cadet-blue);
-    --input-text-color: var(--clr-bizarre);
+    body[data-theme="dark"] {
+      --color-bg: hsla(240, 20%, 10%, 1);            /* Main dark background */
+      --color-surface: hsl(240, 16%, 17%);       /* Slightly lighter content surface */
+      --color-surface-alt: hsla(240, 16%, 30%, 1);   /* Row hover / alternate surface */
+      --color-border: hsla(240, 18%, 35%, 1);        /* Light border or divider */
 
-    --clr-nav: var(--clr-mortar-dark);
+      --color-text-primary: hsla(240, 15%, 85%, 1);  /* Main text */
+      --color-text-secondary: hsla(240, 10%, 65%, 1);/* Secondary text */
+      --color-muted: hsla(240, 8%, 50%, 1);          /* Muted/placeholder text */
 
-    /*
-    --text-main: var(--clr-gray-100);
-    --text-high-contrast: var(--clr-white);
-    --text-brand: var(--clr-brand-500);
-    --text-brand-light: var(--clr-brand-400);
+      --color-accent: hsla(260, 80%, 70%, 1);        /* Violet accent for active item / button */
+      --color-accent-hover: hsla(260, 80%, 60%, 1);  /* Slightly deeper violet */
+      --color-accent-bg: hsla(260, 80%, 70%, 0.1);   /* Faint violet background */
 
-    --background-accent-light: var(--clr-green-400);
-    --background-accent-main: var(--clr-green-500);
-    --background-accent-dark: var(--clr-green-600);
+      --color-button-primary: hsla(260, 90%, 65%, 1);/* Primary button */
+      --color-button-primary-hover: hsla(260, 90%, 55%, 1);
 
-    --background-extra-light: var(--clr-brown-500);
-    --background-light: var(--clr-brown-600);
-    --background-main: var(--clr-brown-700);
-    --background-dark: var(--clr-brown-800);
-    --background-extra-dark: var(--clr-brown-900);
+      --color-status: hsla(210, 100%, 65%, 1); /* Blue label for Draft */
+      --color-status-bg: hsla(210, 100%, 65%, 0.1);
+    }
+
+    body:not([data-theme]),
+    body[data-theme="light"] {
+          /* Backgrounds & Surfaces */
+      --color-bg: hsla(204, 29%, 93%, 1);         /* Approx #ecf0f1 */
+      --color-surface: hsla(210, 29%, 25%, 1);  /* Approx #2c3e50 */
+      --color-surface-alt: hsla(204, 29%, 96%, 1); /* Approx #bdc3c7 */
+
+      /* Borders */
+      --color-border: hsla(210, 29%, 55%, 1);          /* Approx #dcdde1 */
+
+      /* Text */
+      --color-text-primary: hsla(210, 29%, 25%, 1);    /* Approx #2d3436 */
+      --color-text-secondary: hsla(210, 8%, 90%, 1);   /* Approx #95a5a6 */
+      --color-muted: hsla(210, 5%, 70%, 1);            /* Softer variant */
+
+      /* Accents */
+      --color-accent: hsla(204, 70%, 53%, 1);          /* Approx #3498db */
+      --color-accent-hover: hsla(204, 70%, 45%, 1);    /* Darker hover version */
+      --color-accent-bg: hsla(204, 70%, 53%, 0.1);     /* Soft background */
+
+      /* Buttons */
+      --color-button-primary: hsla(204, 70%, 53%, 1);        /* Match accent */
+      --color-button-primary-hover: hsla(204, 70%, 45%, 1);  /* Darker */
+
+      /* Status / Labels */
+      --color-status: hsla(204, 70%, 53%, 1);          /* Same blue used */
+      --color-status-bg: hsla(204, 70%, 53%, 0.1);     /* Soft background */
+
+      /* White + Chat */
+      --color-white: hsla(0, 0%, 100%, 1);             /* Pure white */
+      --color-chat-bg: hsla(0, 0%, 98%, 1);            /* Approx #f9f9f9 */
+    }
+
+    /* Fonts */
 
     --font-size-heading-sm: var(--fs-700);
     --font-size-heading-regular: var(--fs-800);
@@ -167,20 +184,7 @@
     --font-size-sm: var(--fs-300);
     --font-size-regular: var(--fs-400);
     --font-size-md: var(--fs-500);
-    --font-size-lg: var(--fs-600);*/
-
-
-
-    /* Dark Theme */
-    [data-theme="dark"] {
-      --bg-color: var(--clr-mortar);
-      --text-color: var(--clr-charcoal);
-      --card-bg: var(--clr-bizarre);
-      --button-bg: var(--clr-cadet-blue);
-      --danger-button-bg: var(--clr-tan);
-      --danger-button-text: var(--clr-charcoal);
-      --button-text: var(--clr-bizarre);
-    }
+    --font-size-lg: var(--fs-600);
 
     /* Typography */
 
@@ -208,17 +212,15 @@
     }
   }
 
+
+
   html {
     font-family: var(--ff-body);
     line-height: 1.5rem;
+    background-color: var(--color-bg);
   }
 
-  body {
-    /* font-size: var(--fs-600);
-    font-family: var(--ff-body); */
-    color: var(--clr-bizarre);
-    background-color: var(--clr-mortar);
-  }
+
 }
 
 @layer utilities {
@@ -265,7 +267,7 @@
     align-items: center;
   }
 
-  .row-center {
+  .v-center {
     justify-content: center;
   }
 
@@ -277,10 +279,10 @@
     flex-direction: column;
   }
 
-  .form-title {
-    font-family: "Outfit";
-    font-size: 2.5rem;
-    margin: 6rem 0 2rem 0;
+  .see-all {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
   }
 
   .field {
@@ -288,15 +290,15 @@
   }
 
   .label {
-    font: var(--ff-body) var(--text-color-light);
+    font: var(--ff-body) var(--color-text-primary);
     margin: 1rem;
     width: 7rem;
   }
 
   .input {
-    background-color: var(--input-bg);
-    font: var(--ff-body) var(--input-text-color);
-    border: 1px;
+    /* background-color: var(--color-surface); */
+    border: 1px solid var(--color-border);
+    font: var(--ff-body) var(--color-text-primary);
     margin: 1rem;
     width: 12rem;
     height: 2rem;
@@ -305,15 +307,16 @@
   }
 
   .validator-group {
-    position: relative;
+    display: flex;
+    flex-direction: column;
   }
 
   .validator {
-    position: absolute;
-    left: 15rem;
-    top: 1rem;
-    width: 20rem;
-    color: var(--clr-tan);
+    color: var(--color-text-primary);
+    font-size: 0.875rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 1.5rem;
   }
 
   input:is(:-webkit-autofill, :autofill) {
@@ -334,25 +337,30 @@
   .btn {
     margin: 1rem;
     padding: 0.5rem;
-    border-radius: 5px;
-    border: 1px solid var(--clr-mortar-dark)
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-button-primary);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.5);
   }
 
   .btn-submit {
-    background-color: var(--clr-bizarre);
+    background-color: var(--color-button-primary);
   }
 
   .btn-cancel {
-    background-color: var(--clr-tan);
+    background-color: var(--color-button-primary);
   }
 
   .btn:hover {
-    background-color: var(--clr-mortar);
+    /* background-color: var(--clr-mortar); */
+    box-shadow: 0 4px 6px 0 rgba(0,0,0,0.5);
   }
 
   .btn-submit:hover {
-    background-color: var(--clr-bizarre-dark);
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    /* background-color: var(--clr-bizarre-dark); */
+    box-shadow: 0 4px 6px 0 rgba(0,0,0,0.5);
   }
 
   .btn-submit:click {
@@ -360,8 +368,8 @@
   }
 
   .btn-cancel:hover {
-    background-color: var(--clr-tan-dark);
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+   /* background-color: var(--clr-tan-dark); */
+    box-shadow: 0 4px 6px 0 rgba(0,0,0,0.5);
   }
 
   .failed {

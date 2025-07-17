@@ -1,0 +1,18 @@
+<div class="flex-container">
+  <div class="flex-container column">
+    <div class="chat-window-header">
+      <h2>{{ thread?.name }}</h2>
+    </div>
+    <div class="chat-messages" #messagesContainer>
+      @for (message of messages; track message) {
+        <div [ngClass]="{'user-message': message.userId === userId, 'non-user-message': message.userId !== userId}" class="chat-message">
+          <div class="message-content">{{message.body}}</div>
+        </div>
+      }
+    </div>
+    <div class="chat-input">
+      <input type="text" [(ngModel)]="userInput" (keydown.enter)="sendMessage()" placeholder="Type your message..." />
+      <button (click)="sendMessage()">Send</button>
+    </div>
+  </div>
+</div>

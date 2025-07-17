@@ -1,0 +1,29 @@
+.chat-window {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.messages {
+  max-height: 400px;
+  overflow-y: scroll;
+  margin-bottom: 1rem;
+}
+
+.user-message {
+  color: blue;
+  text-align: right;
+  margin-bottom: 0.5rem;
+}
+
+.non-user-message {
+  color: red;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.chat-input {
+  display: flex;
+  gap: 0.5rem;
+}

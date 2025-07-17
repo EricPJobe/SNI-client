@@ -1,0 +1,9 @@
+<div class="picker-container">
+  <div class="picker-content">
+    <select class="picker-select" (change)="setTheme($any($event.target).value)">
+      @for (theme of themes; track theme) {
+      <option [value]="theme" [selected]="theme === selectedTheme">{{ theme }}</option>
+      }
+    </select>
+  </div>
+</div>

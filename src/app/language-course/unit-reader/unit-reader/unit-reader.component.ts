@@ -7,9 +7,11 @@ import { ParsedWord } from '../../../models/parsedword.model';
 import ParseString from '../../../helpers/parse-string';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCirclePlay, faCirclePause } from '@fortawesome/free-solid-svg-icons';
+import { MatIconModule } from '@angular/material/icon';
+
 @Component({
   selector: 'app-unit-reader',
-  imports: [FontAwesomeModule, CommonModule],
+  imports: [FontAwesomeModule, CommonModule, MatIconModule],
   templateUrl: './unit-reader.component.html',
   styleUrl: './unit-reader.component.css'
 })
@@ -41,15 +43,20 @@ export class UnitReaderComponent implements OnInit {
 
   }
 
-  onPlay() {
+  onPlayPause() {
     const audio = this.audioRef.nativeElement;
-    audio.play();
-    this.isPlaying = true;
+    if (this.isPlaying) {
+      audio.pause();
+    } else {
+      audio.play();
+    }
+    this.isPlaying = !this.isPlaying;
   }
 
-  onPause() {
+  onStop() {
     const audio = this.audioRef.nativeElement;
     audio.pause();
+    audio.currentTime = 0;
     this.isPlaying = false;
   }
 
@@ -82,7 +89,7 @@ export class UnitReaderComponent implements OnInit {
     }
     this.hoveredWord = prettierWord;
   }
-  onHoverOut() {
-    this.hoveredWord = null;
-  }
+  // onHoverOut() {
+  //   this.hoveredWord = null;
+  // }
 }

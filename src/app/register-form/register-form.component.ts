@@ -2,10 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+import { catchError, throwError } from 'rxjs';
+
 
 @Component({
   selector: 'app-register-form',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, MatIconModule],
   templateUrl: './register-form.component.html',
   styleUrl: './register-form.component.css'
 })
@@ -20,23 +23,35 @@ export class RegisterFormComponent {
       email: ['', [Validators.required, Validators.email]],
       username: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', Validators.required]
     });
   }
 
   onSubmit(): void {
-    if (this.registrationForm.valid) {
+    const samePassword = this.registrationForm.value.password === this.registrationForm.value.confirmPassword;
+
+    if (this.registrationForm.valid && samePassword) {
       const payload = {
-        first_name: this.registrationForm.value.firstName,
-        last_name: this.registrationForm.value.lastName,
+        title: "Dr.",
+        firstName: this.registrationForm.value.firstName,
+        lastName: this.registrationForm.value.lastName,
         email: this.registrationForm.value.email,
-        user_name: this.registrationForm.value.username,
+        userName: this.registrationForm.value.username,
         password: this.registrationForm.value.password,
-        role_id: 3,
-        is_active: "true"
+        accountDueTS: new Date(),
+        subscriptionType: "Free",
+        roleName: "Admin",
+        isActive: "true"
       };
-      console.log("Form Data: ", this.registrationForm.value);
+      console.log(payload);
       this.invalid = false;
-      this.http.post('http://localhost:4001/api/v1/user/register', payload).subscribe(resp => {
+      this.http.post('http://localhost:5237/api/v1/auth/register', payload).pipe(
+              catchError(err => {
+                console.error(err);
+                this.invalid = true;
+                return throwError(() => new Error("Registration failed."));
+              })
+            ).subscribe(resp => {
         console.log(resp);
         // Turn off spinner
         this.router.navigate(['/studenthome']);
@@ -44,6 +59,7 @@ export class RegisterFormComponent {
 
     } else {
       console.log("Form is invalid");
+      this.registrationForm.setErrors({ passwordMismatch: true });
       this.invalid = true;
 
       // Show error message
