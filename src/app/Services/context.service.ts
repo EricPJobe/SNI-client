@@ -9,13 +9,13 @@ export class ContextService {
   private _token = signal<boolean>(false);
   private _user = signal<User | null>(null);
   private _baseApiUrl = signal<string | undefined>(environment.apiUrl);
-  private _chatBaseUrl = signal<string | undefined>(environment.chatUrl);
+  private _baseChatUrl = signal<string | undefined>(environment.chatUrl);
 
   token = computed(() => this._token());
   user = computed(() => this._user());
   isLoggedIn = computed(() => !!this._token());
   baseApiUrl = computed(() => this._baseApiUrl());
-  chatBaseUrl = computed(() => this._chatBaseUrl());
+  baseChatUrl = computed(() => this._baseChatUrl());
 
   constructor() {
 

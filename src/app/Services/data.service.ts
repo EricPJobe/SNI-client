@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SearchModel } from '../models/search.model';
 import { catchError, EMPTY, firstValueFrom, map, Observable, ObservableInput, throwError } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  public findPath: string = 'http://localhost:5237/api/v1/';
+  public findPath: string = `${environment.apiUrl}/api/v1/`;
   public savePath: string = '';
   public errorPath: string = '';
   public errorMessage: string = '';

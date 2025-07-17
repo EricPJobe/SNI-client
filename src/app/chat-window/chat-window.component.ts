@@ -14,6 +14,7 @@ import { Socket, Channel } from 'phoenix';
 })
 export class ChatWindowComponent implements OnInit, OnDestroy {
   contextService = inject(ContextService);
+  baseChatUrl = this.contextService.baseChatUrl;
   userId = this.contextService.getUser()?.accountId?.toString() || '';
   @Input() thread: Thread | null = null;
   messages = new Array<Message>();
@@ -32,7 +33,7 @@ export class ChatWindowComponent implements OnInit, OnDestroy {
   }
 
   openSocket() {
-    this.socket = new Socket('ws://localhost:4000/socket', { params: { user_id: this.userId } });
+    this.socket = new Socket(this.baseChatUrl +'socket', { params: { user_id: this.userId } });
     this.socket.connect();
 
     this.channel = this.socket.channel(`thread:${this.thread?.id}`, {});
